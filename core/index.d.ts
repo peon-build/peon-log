@@ -7,8 +7,8 @@ namespace PeonBuild {
 		setting(name: string, message: string, args?: Array<LogParam>);
 		filename(message: string, args?: Array<LogParam>);
 
-		title(message: string, args?: Array<LogParam>);
 		log(message: string, args?: Array<LogParam>);
+		title(message: string, args?: Array<LogParam>);
 		quote(status: boolean, message: string, args?: Array<LogParam>);
 		assert(status: boolean, message: string, args?: Array<LogParam>);
 		space();
