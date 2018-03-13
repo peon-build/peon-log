@@ -62,6 +62,8 @@ peon-log -L warning
 Print standard text messages send in `message` param into console without special coloring except arguments provided.
 See [arguments](#arguments) section for more info.
 
+![Basic log](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/basic_log.PNG)
+
 ```javascript
  log.log("Hi, im peon-log module!", []);
 ```
@@ -70,11 +72,14 @@ peon-log "Hi, im peon-log module!" -T log
 peon-log "Hi, im peon-log module!"
 ```
 
+
 #### `log.warning(message, args)`
 
 Print warning text messages send in `message` param into console with coloring for warning. Arguments provided in `args`
 can change coloring of parts of message.
 See [arguments](#arguments) section for more info.
+
+![Basic warning](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/basic_warning.PNG)
 
 ```javascript
  log.warning("Hi, im peon-log module!", []);
@@ -89,6 +94,8 @@ Print error text messages send in `message` param into console with coloring for
 can change coloring of parts of message.
 See [arguments](#arguments) section for more info.
 
+![Basic error](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/basic_error.PNG)
+
 ```javascript
  log.error("Hi, im peon-log module!", []);
 ```
@@ -102,6 +109,8 @@ Print title text messages send in `message` param into console with coloring for
 can change coloring of parts of message.
 See [arguments](#arguments) section for more info.
 
+![Basic title](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/basic_title.PNG)
+
 ```javascript
  log.title("Hi, im peon-log module!", []);
 ```
@@ -114,6 +123,9 @@ peon-log "Hi, im peon-log module!" -T title
 Print quote text messages send in `message` param into console with coloring for quote. It based on `status` provided as
 first parameter that is boolean. Arguments provided in `args`can change coloring of parts of message. 
 See [arguments](#arguments) section for more info.
+
+![Basic quote ok](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/basic_quote_ok.PNG)
+![Basic quote fail](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/basic_quote_fail.PNG)
 
 ```javascript
  log.quote(true, "Hi, this is positive quote style!", []);
@@ -130,6 +142,9 @@ peon-log "Hi, this is negative quote style!" -T quote -F
 Print assert text messages send in `message` param into console with coloring for assert. It based on `status` provided as
 first parameter that is boolean. Arguments provided in `args`can change coloring of parts of message. 
 See [arguments](#arguments) section for more info.
+
+![Basic assert ok](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/basic_assert_ok.PNG)
+![Basic assert fail](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/basic_assert_fail.PNG)
 
 ```javascript
  log.assert(true, "Hi, this is positive assert style!", []);
@@ -148,6 +163,8 @@ Print setting text messages send in `message` param into console with coloring f
 name provided as first parameter that is string. Arguments provided in `args`can change coloring of parts of message. 
 See [arguments](#arguments) section for more info.
 
+![Basic setting](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/basic_setting.PNG)
+
 ```javascript
  log.setting("log-level", "Set log level of logger.", []);
 ```
@@ -161,6 +178,8 @@ peon-log -N log-level "Set log level of logger." -T setting -L all
 Print filename text messages send in `message` param into console with coloring for assert. Arguments provided 
 in `args`can change coloring of parts of message. 
 See [arguments](#arguments) section for more info.
+
+![Basic filename](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/basic_filename.PNG)
 
 ```javascript
  log.filename("Generated some file name into some folder.", []);
