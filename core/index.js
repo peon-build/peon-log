@@ -375,7 +375,7 @@ function peonLog() {
 				let param = /** @type {PeonBuild.LogParam}*/{};
 
 				param.value = value;
-				param.type = paramType.Number;
+				param.type = paramType.Text;
 
 				return param;
 			},

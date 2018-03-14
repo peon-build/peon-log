@@ -193,5 +193,115 @@ peon-log "Generated some file name into some folder." -T filename -L all
 
 #### Arguments
 
-This section describe parameter arguments that is send into every function of logger. Arguments are special 
+This section describe parameter `arguments` that is send into every function of logger. Arguments are special 
 colorized piece of text and can be difference from type of message. 
+
+For example you can colorize your url that is in you console message. As you can see below, you can use
+$[1-N] to use is as a placeholder in message.
+
+![Url argument](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/arguments_url.PNG)
+
+```javascript
+ log.log("This is a message with link $1!", [
+ 	log.p.url("https://github.com/peon-build/peon-log")
+ ]);
+```
+```cmd
+peon-log "This is a message with link $1!" --url https://github.com/peon-build/peon-log
+```
+
+![Urls argument](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/arguments_urls.PNG)
+
+You can also use array of values, that are concat into string after.
+
+```javascript
+ log.log("This is a message with links $1!", [
+ 	log.p.url([
+ 		"https://github.com/peon-build/peon-log",
+ 		"https://github.com/peon-build/peon"
+ 	])
+ ]);
+```
+```cmd
+peon-log "This is a message with links $1!" --url https://github.com/peon-build/peon-log,https://github.com/peon-build/peon
+```
+
+#### `log.p.url(data)`
+
+Create argument for displaying url link or links. 
+
+![Url argument](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/arguments_url.PNG)
+
+```javascript
+ log.log("Link: $1", log.p.url("https://github.com/peon-build/peon"));
+```
+```cmd
+peon-log "Link: $1" --url https://github.com/peon-build/peon
+```
+
+#### `log.p.path(data)`
+
+Create argument for displaying path or paths. 
+
+![Path argument](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/arguments_path.PNG)
+
+```javascript
+ log.log("Path: $1", log.p.path("C:/Test/file.js:325:10"));
+```
+```cmd
+peon-log "Path: $1" --path C:/Test/file.js:325:10
+```
+
+#### `log.p.id(data)`
+
+Create argument for displaying id or list of ids. 
+
+![Id argument](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/arguments_id.PNG)
+
+```javascript
+ log.log("Id: $1", log.p.id("#Q25h48gtu89drt"));
+```
+```cmd
+peon-log "Id: $1" --id #Q25h48gtu89drt
+```
+
+#### `log.p.number(data)`
+
+Create argument for displaying number or list of numbers. 
+
+![Number argument](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/arguments_numbers.PNG)
+
+```javascript
+ log.log("Numbers available: $1", log.p.number([1, 2, 20, 25, 30]));
+```
+```cmd
+peon-log "Numbers available: $1" --number 1,2,20,25,30
+```
+
+#### `log.p.number(data)`
+
+Create argument for displaying simple text. This is same like use ES6 templates or simple string concat.
+
+![Text argument](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/arguments_text.PNG)
+
+```javascript
+ log.log("Text: $1", log.p.text("simple text"));
+ log.log("Text: simple text");
+```
+```cmd
+peon-log "Text: $1" --text "simple text"
+peon-log "Text: simple text"
+```
+
+#### `log.p.underline(data)`
+
+Create argument for displaying underline text.
+
+![Underline argument](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/arguments_underline.PNG)
+
+```javascript
+ log.log("Text: $1", log.p.underline("simple text"));
+```
+```cmd
+peon-log "Text: $1" --underline "simple text"
+```
