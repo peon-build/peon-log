@@ -30,7 +30,7 @@ peon-log --version
 peon-log --help
 ```
 
-#### LogLevel, ParamType
+### LogLevel, ParamType
 
 This enum are used for setting log level, there are available on `log` instance and you can read it as is showed below.
 
@@ -39,7 +39,7 @@ This enum are used for setting log level, there are available on `log` instance 
  const paramType = log.ParamType;
 ```
 
-#### `log.level(level)`
+### `log.level(level)`
 
 This is method that can set logging level into current instance of logger. You can set what to show by rules that
 are describe here. You can see command line argument for set log level.
@@ -57,7 +57,7 @@ peon-log -L all
 peon-log -L warning
 ```
 
-#### `log.log(message, args)`
+### `log.log(message, args)`
 
 Print standard text messages send in `message` param into console without special coloring except arguments provided.
 See [arguments](#arguments) section for more info.
@@ -73,7 +73,7 @@ peon-log "Hi, im peon-log module!"
 ```
 
 
-#### `log.warning(message, args)`
+### `log.warning(message, args)`
 
 Print warning text messages send in `message` param into console with coloring for warning. Arguments provided in `args`
 can change coloring of parts of message.
@@ -88,7 +88,7 @@ See [arguments](#arguments) section for more info.
 peon-log "Hi, im peon-log module!" -T warning
 ```
 
-#### `log.error(message, args)`
+### `log.error(message, args)`
 
 Print error text messages send in `message` param into console with coloring for error. Arguments provided in `args`
 can change coloring of parts of message.
@@ -103,7 +103,7 @@ See [arguments](#arguments) section for more info.
 peon-log "Hi, im peon-log module!" -T error
 ```
 
-#### `log.title(message, args)`
+### `log.title(message, args)`
 
 Print title text messages send in `message` param into console with coloring for title. Arguments provided in `args`
 can change coloring of parts of message.
@@ -118,7 +118,7 @@ See [arguments](#arguments) section for more info.
 peon-log "Hi, im peon-log module!" -T title
 ```
 
-#### `log.quote(status, message, args)`
+### `log.quote(status, message, args)`
 
 Print quote text messages send in `message` param into console with coloring for quote. It based on `status` provided as
 first parameter that is boolean. Arguments provided in `args`can change coloring of parts of message. 
@@ -137,7 +137,7 @@ peon-log "Hi, this is negative quote style!" -T quote -F
 ```
 > As you can see. There is flag `-F` that is used for setting fail type of quote.
 
-#### `log.assert(status, message, args)`
+### `log.assert(status, message, args)`
 
 Print assert text messages send in `message` param into console with coloring for assert. It based on `status` provided as
 first parameter that is boolean. Arguments provided in `args`can change coloring of parts of message. 
@@ -157,7 +157,7 @@ peon-log "Hi, this is negative quote style!" -T assert -F
 > As you can see. There is flag `-F` that is used for setting fail type of assert.
 
 
-#### `log.setting(name, message, args)`
+### `log.setting(name, message, args)`
 
 Print setting text messages send in `message` param into console with coloring for assert. It is prefixed with `status`
 name provided as first parameter that is string. Arguments provided in `args`can change coloring of parts of message. 
@@ -173,7 +173,7 @@ peon-log -N log-level "Set log level of logger." -T setting -L all
 ```
 > You must for log level type 'all' because normally message is not show due to default value of log-level.
 
-#### `log.filename(message, args)`
+### `log.filename(message, args)`
 
 Print filename text messages send in `message` param into console with coloring for assert. Arguments provided 
 in `args`can change coloring of parts of message. 
@@ -191,7 +191,7 @@ peon-log "Generated some file name into some folder." -T filename -L all
 
 
 
-#### Arguments
+## Arguments
 
 This section describe parameter `arguments` that is send into every function of logger. Arguments are special 
 colorized piece of text and can be difference from type of message. 
@@ -226,7 +226,7 @@ You can also use array of values, that are concat into string after.
 peon-log "This is a message with links $1!" --url https://github.com/peon-build/peon-log,https://github.com/peon-build/peon
 ```
 
-#### `log.p.url(data)`
+### `log.p.url(data)`
 
 Create argument for displaying url link or links. 
 
@@ -239,7 +239,7 @@ Create argument for displaying url link or links.
 peon-log "Link: $1" --url https://github.com/peon-build/peon
 ```
 
-#### `log.p.path(data)`
+### `log.p.path(data)`
 
 Create argument for displaying path or paths. 
 
@@ -252,7 +252,7 @@ Create argument for displaying path or paths.
 peon-log "Path: $1" --path C:/Test/file.js:325:10
 ```
 
-#### `log.p.id(data)`
+### `log.p.id(data)`
 
 Create argument for displaying id or list of ids. 
 
@@ -265,7 +265,7 @@ Create argument for displaying id or list of ids.
 peon-log "Id: $1" --id #Q25h48gtu89drt
 ```
 
-#### `log.p.number(data)`
+### `log.p.number(data)`
 
 Create argument for displaying number or list of numbers. 
 
@@ -278,7 +278,7 @@ Create argument for displaying number or list of numbers.
 peon-log "Numbers available: $1" --number 1,2,20,25,30
 ```
 
-#### `log.p.number(data)`
+### `log.p.number(data)`
 
 Create argument for displaying simple text. This is same like use ES6 templates or simple string concat.
 
@@ -293,7 +293,7 @@ peon-log "Text: $1" --text "simple text"
 peon-log "Text: simple text"
 ```
 
-#### `log.p.underline(data)`
+### `log.p.underline(data)`
 
 Create argument for displaying underline text.
 
