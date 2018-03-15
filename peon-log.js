@@ -153,6 +153,7 @@ program
 	.option('-t, --text <text>', `Set text that is injected into message. See examples in readme.`)
 	.option('-u, --underline <underline>', `Set underline style that is injected into message. See examples in readme.`);
 
+//message command
 program
 	.command('*')
 	.description(`Log message into console. You can use $[0-9] for setting special colored arguments. See examples in readme. Default message is '${messageDefault}'.`)
@@ -189,6 +190,22 @@ program
 			break;
 		}
 	});
+
+//help :)
+program.on('--help', function(){
+	console.log('');
+	console.log('');
+	console.log('  Examples:');
+	console.log('');
+	console.log('    $ peon-log --help');
+	console.log('    $ peon-log "Hi, im peon-log module!" -T log');
+	console.log('    $ peon-log "Hi, im peon-log module!" -T title');
+	console.log('    $ peon-log "Hi, this is negative quote style!" -T quote -F');
+	console.log('    $ peon-log "This is a message with links $1!" --url https://github.com/peon-build/peon-log,https://github.com/peon-build/peon');
+	console.log('    $ peon-log "Application route id is $1." --id #Q25h48gtu89drt');
+	console.log('    $ peon-log "Application route with id $1 is $2!" -T warning --id #Q25h48gtu89drt --underline corrupted');
+	console.log('');
+});
 
 
 //parse data
