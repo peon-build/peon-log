@@ -1,4 +1,7 @@
 const chalk = require('chalk');
+const lt = require('./log.time');
+const li = require('./log. interval');
+
 
 const title = chalk.bold.underline;
 const url = chalk.blue;
@@ -12,6 +15,8 @@ const error = chalk.bold.red;
 const underline = chalk.underline;
 const warning = chalk.bold.yellow;
 const dollars = chalk.magentaBright;
+const debug = chalk.black.bgWhite;
+const time = chalk.cyanBright;
 
 const splitter = "\u2028";
 const colored = "\u241E";
@@ -153,7 +158,8 @@ function levelValue(level) {
 
 function peonLog() {
 	let state = /** @type {PeonBuild.LoggerState}*/{
-		level: logLevel.Info
+		level: logLevel.Info,
+		timestamps: {}
 	};
 
 	//interface
@@ -202,6 +208,31 @@ function peonLog() {
 
 			showMessage(state, /** @type {PeonBuild.LogLogLevel}*/logLevel.All,
 				[dollars(mark), concatMessage(option, text)].join(" ")
+			);
+		},
+
+		/**
+		 * Debug
+		 * @description Report debug info that is not normally visible.
+		 * @param {string} message
+		 * @param {Array.<PeonBuild.LogParam>=} args
+		 */
+		debug(message, args) {
+			let text = processMessage(message, args);
+
+			showMessage(state, /** @type {PeonBuild.LogLogLevel}*/logLevel.All,
+				concatMessage(debug, text)
+			);
+		},
+
+		/**
+		 * Stacktrace
+		 * @description Is used for logging stack trace into console
+		 * @param {Error} err
+		 */
+		stacktrace(err) {
+			showMessage(state, /** @type {PeonBuild.LogLogLevel}*/logLevel.All,
+				concatMessage(error, [err.stack])
 			);
 		},
 
@@ -269,6 +300,37 @@ function peonLog() {
 			text.unshift(mark);
 			msg = status ? concatMessage(boldOk, text) : concatMessage(boldFail, text);
 			showMessage(state, /** @type {PeonBuild.LogLogLevel}*/logLevel.Info, msg);
+		},
+
+		/**
+		 * Timestamp
+		 * @description Timestamp is used for reporting time info into console
+		 * @param {string} name
+		 * @param {string} message
+		 * @param {Array.<PeonBuild.LogParam>=} args
+		 */
+		timestamp(name, message, args) {
+			let parts,
+				date = new Date(),
+				text = processMessage(message, args);
+
+			//message parts
+			parts = [time(" ■ "),  time(lt(date)), option(name + ":"), concatMessage(null, text)];
+
+			//already exists
+			if (state.timestamps[name]) {
+				//get difference
+				parts.push(" +" + li(state.timestamps[name], date));
+				delete state.timestamps[name];
+
+			//create new
+			} else {
+				//add
+				state.timestamps[name] = date;
+			}
+
+			//show start
+			showMessage(state, /** @type {PeonBuild.LogLogLevel}*/logLevel.Info, parts.join(" "));
 		},
 
 		/**

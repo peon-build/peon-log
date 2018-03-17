@@ -103,6 +103,23 @@ See [arguments](#arguments) section for more info.
 peon-log "Hi, im peon-log module!" -T error
 ```
 
+### `log.debug(message, args)`
+
+Print debug text messages send in `message` param into console with special coloring for easy found of debug message.
+See [arguments](#arguments) section for more info.
+
+![Basic debug](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/basic_debug.PNG)
+
+```javascript
+ log.debug("This is debug message with id $1!", [
+ 	log.p.id("#Q25h48gtu89drt")
+ ]);
+```
+```cmd
+peon-log "This is debug message with id $1!" -T debug --id #Q25h48gtu89drt -L all
+```
+> You must for log level type 'all' because normally message is not show due to default value of log-level.
+
 ### `log.title(message, args)`
 
 Print title text messages send in `message` param into console with coloring for title. Arguments provided in `args`
@@ -189,6 +206,37 @@ peon-log "Generated some file name into some folder." -T filename -L all
 ```
 > You must for log level type 'all' because normally message is not show due to default value of log-level.
 
+### `log.timestamp(name, message, args)`
+
+Print timestamp text messages send in `message` param into console with special coloring and time info. Timestamp
+can show start time and after call same method with same name, can display time diff between calls. Also you can
+apply arguments for special coloring.
+See [arguments](#arguments) section for more info.
+
+![Basic timestamp start](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/basic_timer_start.PNG)
+![Basic timestamp end](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/basic_timer_end.PNG)
+
+```javascript
+ log.timestamp("Timer", "This is timer message");
+```
+```cmd
+peon-log "This is timer message" -N Timer -T timestamp
+```
+
+> If you use timestamp in command line, you can never found end of timestamp, because this is stored only in logger itself. This is possible only for nodejs API calls.
+
+### `log.stacktrace(error)`
+
+Print stacktrace from error as text messages with special coloring for easy found error message. There are no arguments for this method.
+Remember that stack trace message can not be called from command line interface.
+
+![Basic stacktrace throw](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/basic_stacktrace.PNG)
+![Basic stacktrace error](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/basic_stacktrace_error.PNG)
+
+```javascript
+ log.stacktrace(new Error("This is bad error."));
+```
+> You must for log level type 'all' because normally message is not show due to default value of log-level.
 
 
 ## Arguments

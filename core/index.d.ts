@@ -6,11 +6,14 @@ namespace PeonBuild {
 
 		setting(name: string, message: string, args?: Array<LogParam>);
 		filename(message: string, args?: Array<LogParam>);
+		debug(message: string, args?: Array<LogParam>);
+		stacktrace(err);
 
 		log(message: string, args?: Array<LogParam>);
 		title(message: string, args?: Array<LogParam>);
 		quote(status: boolean, message: string, args?: Array<LogParam>);
 		assert(status: boolean, message: string, args?: Array<LogParam>);
+		timestamp(name: string, message: string, args?: Array<LogParam>);
 		space();
 
 		warning(message: string, args?: Array<LogParam>);
@@ -46,6 +49,7 @@ namespace PeonBuild {
 
 	type LoggerState = {
 		level: LogLogLevel;
+		timestamps: Map<string, Date>;
 	}
 
 	enum LogParamType {

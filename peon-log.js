@@ -185,6 +185,15 @@ program
 		case "filename":
 			core.filename(setting.message, args);
 			break;
+		case "debug":
+			core.debug(setting.message, args);
+			break;
+		case "timestamp":
+			core.timestamp(setting.name, setting.message, args);
+			break;
+		case "stacktrace":
+			core.error(`Stacktrace message is not possible show from command line.`);
+			break;
 		default:
 			core.log(setting.message, args);
 			break;
