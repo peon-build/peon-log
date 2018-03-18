@@ -173,6 +173,9 @@ program
 		case "tip":
 			core.tip(setting.message, args);
 			break;
+		case "code":
+			core.code(setting.message);
+			break;
 		case "title":
 			core.title(setting.message, args);
 			break;

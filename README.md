@@ -103,6 +103,19 @@ See [arguments](#arguments) section for more info.
 peon-log "Do you have access rights for this?" -T tip
 ```
 
+### `log.code(codeLine)`
+
+Print code line send in `codeLine` param into console with special prefixes and coloring.
+
+![Basic code](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/basic_code.PNG)
+
+```javascript
+ log.code("function myFunc(text) { return text.toLowerCase(); }");
+```
+```cmd
+peon-log "function myFunc(text) { return text.toLowerCase(); }" -T code
+```
+
 ### `log.error(message, args)`
 
 Print error text messages send in `message` param into console with coloring for error. Arguments provided in `args`

@@ -19,6 +19,8 @@ const debug = chalk.black.bgWhite;
 const time = chalk.cyanBright;
 const tip = chalk.yellowBright.underline;
 const question = chalk.yellowBright.bold;
+const code = chalk.italic.white;
+const codePrefix = chalk.blue.bold;
 
 const splitter = "\u2028";
 const colored = "\u241E";
@@ -347,6 +349,17 @@ function peonLog() {
 
 			//show start
 			showMessage(state, /** @type {PeonBuild.LogLogLevel}*/logLevel.Info, parts.join(" "));
+		},
+
+		/**
+		 * Code
+		 * @description Print code line into console with specified form.
+		 * @param {string} codeLine
+		 */
+		code(codeLine) {
+			showMessage(state, /** @type {PeonBuild.LogLogLevel}*/logLevel.Info,
+				[codePrefix("    | "), concatMessage(code, [codeLine])].join(" ")
+			);
 		},
 
 		/**
