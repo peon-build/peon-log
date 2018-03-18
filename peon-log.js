@@ -1,9 +1,8 @@
-//https://www.npmjs.com/package/chokidar
-//https://www.npmjs.com/package/glob
 //https://www.npmjs.com/package/commander
 
 const program = /** @type {local.Command}*/require('commander');
 const core = /** @type {PeonBuild.Log}*/require('./core/index')();
+
 const pjson = require('./package.json');
 
 const delimiter = ",";
