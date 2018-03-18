@@ -88,6 +88,21 @@ See [arguments](#arguments) section for more info.
 peon-log "Hi, im peon-log module!" -T warning
 ```
 
+### `log.tip(message, args)`
+
+Print tip text messages send in `message` param into console with coloring for tip. Arguments provided in `args`
+can change coloring of parts of message.
+See [arguments](#arguments) section for more info.
+
+![Basic warning](https://raw.githubusercontent.com/peon-build/peon-log/master/doc/imgs/basic_tip.PNG)
+
+```javascript
+ log.tip("Do you have access rights for this?", []);
+```
+```cmd
+peon-log "Do you have access rights for this?" -T tip
+```
+
 ### `log.error(message, args)`
 
 Print error text messages send in `message` param into console with coloring for error. Arguments provided in `args`

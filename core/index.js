@@ -17,6 +17,8 @@ const warning = chalk.bold.yellow;
 const dollars = chalk.magentaBright;
 const debug = chalk.black.bgWhite;
 const time = chalk.cyanBright;
+const tip = chalk.yellowBright.underline;
+const question = chalk.yellowBright.bold;
 
 const splitter = "\u2028";
 const colored = "\u241E";
@@ -300,6 +302,20 @@ function peonLog() {
 			text.unshift(mark);
 			msg = status ? concatMessage(boldOk, text) : concatMessage(boldFail, text);
 			showMessage(state, /** @type {PeonBuild.LogLogLevel}*/logLevel.Info, msg);
+		},
+
+		/**
+		 * Tip
+		 * @description Show tip or hint info for user
+		 * @param {string} message
+		 * @param {Array.<PeonBuild.LogParam>=} args
+		 */
+		tip(message, args) {
+			let text = processMessage(message, args);
+
+			showMessage(state, /** @type {PeonBuild.LogLogLevel}*/logLevel.Info,
+				[question(" (?) "), concatMessage(tip, text)].join(" ")
+			);
 		},
 
 		/**

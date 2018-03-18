@@ -13,6 +13,7 @@ namespace PeonBuild {
 		title(message: string, args?: Array<LogParam>);
 		quote(status: boolean, message: string, args?: Array<LogParam>);
 		assert(status: boolean, message: string, args?: Array<LogParam>);
+		tip(message: string, args?: Array<LogParam>);
 		timestamp(name: string, message: string, args?: Array<LogParam>);
 		space();
 
