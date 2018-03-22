@@ -381,3 +381,5 @@ Create argument for displaying underline text.
 ```cmd
 peon-log "Text: $1" --underline "simple text"
 ```
+
+## Examples
