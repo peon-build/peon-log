@@ -382,4 +382,4 @@ Create argument for displaying underline text.
 peon-log "Text: $1" --underline "simple text"
 ```
 
-## Examples
+## [Examples](/doc/examples.md)
