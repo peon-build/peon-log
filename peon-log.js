@@ -1,7 +1,7 @@
 //https://www.npmjs.com/package/commander
 
 const program = /** @type {local.Command}*/require('commander');
-const core = /** @type {PeonBuild.Log}*/require('./core/index')();
+const core = /** @type {PeonBuild.Log}*/require('./index')();
 
 const pjson = require('./package.json');
 
