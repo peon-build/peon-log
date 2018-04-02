@@ -15,9 +15,7 @@ module.exports = {
 	//src
 	src: null,
 	//entry
-	entry: {
-
-	},
+	entry: "./index.js",
 	//tests
 	tests: {
 		runner: "karma",
