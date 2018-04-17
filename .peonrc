@@ -23,5 +23,13 @@ module.exports = {
 	},
 
 	//build steps
-	steps: []
+	steps: [
+		{
+			name: "changelog",
+			stage: "pack",
+			handler: () => {
+				//TODO: Handler
+			}
+		}
+	]
 };
