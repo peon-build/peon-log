@@ -28,7 +28,6 @@ module.exports = {
 			name: "changelog",
 			stage: "pack",
 			handler: () => {
-				//TODO: Handler
 			}
 		}
 	]
